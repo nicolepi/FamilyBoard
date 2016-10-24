@@ -21,7 +21,10 @@ namespace FamilyBoard
 
         public static void addPhoto(Photo Photo)
         {
-            Photos.Add(Photo);
+            using (var model = new FamilyBoardModel()) {
+                model.Photos.Add(Photo);
+                model.SaveChanges();
+            }
         }
 
         public static void addVideo(Video Video)
@@ -31,9 +34,12 @@ namespace FamilyBoard
 
         public static void printPhoto()
         {
-            foreach (var photo in Photos)
+            using (var model = new FamilyBoardModel())
             {
-                Console.WriteLine("Photo Title: {0}, Date Created: {1}, By: {2}", photo.Title, photo.DateCreated, photo.User.UserName);
+                foreach (var photo in model.Photos)
+                {
+                    Console.WriteLine("Photo Title: {0}", photo.Title);
+                }
             }
         }
     }

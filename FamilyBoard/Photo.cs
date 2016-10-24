@@ -1,27 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FamilyBoard
 {
-    class Photo
+    public class Photo
     {
         #region Properties
+        [Key]
         public int Id { get; set; }
         public string Title { get; set; }
         public string Comment { get; set; }
-        public User User { get; set; }
-        public DateTime DateCreated { get; private set; }
+        public string DateCreated { get; set; }
         #endregion
 
         #region Methods
-        public Photo(string Title, User UserName)
+        public Photo()
         {
-            this.Title = Title;
-            this.User = UserName;
-            this.DateCreated = DateTime.Now;
+            SetDateCreated();
+        }
+        public void SetDateCreated()
+        {
+            DateCreated = DateTime.Now.ToString();
         }
         
         #endregion

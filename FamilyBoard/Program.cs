@@ -10,13 +10,13 @@ namespace FamilyBoard
     {
         static void Main(string[] args)
         {
-            User nicole = new User("nicolepi", "123456");
-            User henry = new User("henrypi", "2234567");
-            Photo picture1 = new Photo("Seattle Summer",nicole);
+            Photo picture1 = new Photo();
+            picture1.Title = "Seattle Summer";
             Board.addPhoto(picture1);
-            picture1 = new Photo("Taipei Vacation", henry);
+            picture1 = new Photo();
+            picture1.Title = "Winter Time";
             Board.addPhoto(picture1);
-            Board.printPhoto();            
+            Board.printPhoto();
             Console.ReadLine(); //prevent command line from closing
         }
     }
