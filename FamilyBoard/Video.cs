@@ -13,8 +13,8 @@ namespace FamilyBoard
         [Key]
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Comment { get; set; }
         public string DateCreated { get; set; }
+        public virtual ICollection<VideoComment> Comments { get; set; }
         #endregion
 
         public Video()

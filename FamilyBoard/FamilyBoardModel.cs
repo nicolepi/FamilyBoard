@@ -23,6 +23,7 @@ namespace FamilyBoard
         public virtual DbSet<Photo> Photos { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Video> Videos { get; set; }
+        public virtual DbSet<PhotoComment> Comments { get; set; }
     }
 
     //public class MyEntity

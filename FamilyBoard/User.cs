@@ -14,16 +14,15 @@ namespace FamilyBoard
         [Key]
         public int Id { get; set; }
         public string UserName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         string Password { get; set; }
+        public virtual ICollection<VideoComment> VideoComments { get; set; }
+        public virtual ICollection<PhotoComment> PhotoComments { get; set; }
         #endregion
 
         #region Methods
-        public User(string UserName, string Password)
-        {
-            this.UserName = UserName;
-            this.Password = Password;
-            Console.WriteLine("User " + this.UserName + " created.");
-        }
+
 
         #endregion
 
