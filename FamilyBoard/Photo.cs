@@ -21,6 +21,7 @@ namespace FamilyBoard
         public Photo()
         {
             SetDateCreated();
+            this.Comments = new List<PhotoComment>();
         }
         public void SetDateCreated()
         {
