@@ -51,22 +51,58 @@ namespace FamilyBoard
             }
         }
 
+        public static void addPhotocomment(PhotoComment PhotoComment)
+        {
+            using (var model = new FamilyBoardModel())
+            {
+                model.PhotoComments.Add(PhotoComment);
+                model.SaveChanges();
+
+            }
+        }
+
+        public static void addVideocomment(VideoComment VideoComment)
+        {
+            using (var model = new FamilyBoardModel())
+            {
+                model.VideoComments.Add(VideoComment);
+                model.SaveChanges();
+
+            }
+        }
+
         public static void PrintContent()
         {
             using (var model = new FamilyBoardModel())
             {
+                foreach (var user in model.Users)
+                {
+                    Console.WriteLine("User {0} created, Username: {1}\n", user.FirstName, user.UserName);
+                }
                 foreach (var photo in model.Photos)
                 {
                     Console.WriteLine("Photo Title: {0}", photo.Title);
+                    Console.WriteLine("------------------------------");
+                    var comments = model.PhotoComments.Where(p => p.PhotoId == photo.Id);
+                    //linq
+                    foreach (var comment in comments)
+                    {
+                        Console.WriteLine("Comment: {0}", comment.Content);
+                    }
+                    Console.WriteLine();
                 }
                 foreach (var video in model.Videos)
                 {
                     Console.WriteLine("Video Title: {0}", video.Title);
+                    Console.WriteLine("------------------------------");
+                    var comments = model.VideoComments.Where(p => p.VideoId == video.Id);
+                    foreach (var comment in comments)
+                    {
+                        Console.WriteLine("Comment: {0}", comment.Content);
+                    }
+                    Console.WriteLine();
                 }
-                foreach (var user in model.Users)
-                {
-                    Console.WriteLine("User {0} created, Username: {1}", user.FirstName, user.UserName);
-                }
+                
             }
         }
         #endregion

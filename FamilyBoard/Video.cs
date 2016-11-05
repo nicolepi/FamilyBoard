@@ -20,6 +20,7 @@ namespace FamilyBoard
         public Video()
         {
             SetDateCreated();
+            this.Comments = new List<VideoComment>();
         }
 
         public void SetDateCreated()
