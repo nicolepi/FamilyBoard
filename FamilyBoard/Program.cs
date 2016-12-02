@@ -89,6 +89,7 @@ namespace FamilyBoard
                                 comment.PhotoId = choice;
                                 comment.UserId = 1;
                                 Board.addPhotocomment(comment);
+
                                 break;
                             }
                         }
