@@ -10,6 +10,13 @@ namespace FamilyBoard
     {
         static void Main(string[] args)
         {
+            /*
+            User nicole = new User();
+            nicole.FirstName = "Nicole";
+            nicole.LastName = "Pi";
+            Board.addUser(nicole);
+            */
+
             Console.WriteLine("Welcome to Family Board!\n");            
             int choice = -1;
             bool invalidChoice = false;

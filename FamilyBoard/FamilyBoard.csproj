@@ -54,7 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="PhotoComment.cs" />
     <Compile Include="FamilyBoardModel.cs" />
