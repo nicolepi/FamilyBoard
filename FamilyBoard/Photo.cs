@@ -15,6 +15,9 @@ namespace FamilyBoard
         public string Title { get; set; }
         public string DateCreated { get; set; }
         public virtual ICollection<PhotoComment> Comments { get; set; }
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public virtual User User { get; set; } 
         #endregion
 
         #region Methods
