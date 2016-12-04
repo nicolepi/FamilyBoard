@@ -75,10 +75,7 @@ namespace FamilyBoard
         {
             using (var model = new FamilyBoardModel())
             {
-                foreach (var user in model.Users)
-                {
-                    Console.WriteLine("User {0} created, Username: {1}\n", user.FirstName, user.UserName);
-                }
+                
                 foreach (var photo in model.Photos)
                 {
                     Console.WriteLine("Photo Title: {0}", photo.Title);

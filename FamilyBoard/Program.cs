@@ -8,18 +8,88 @@ namespace FamilyBoard
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            /*
-            User nicole = new User();
-            nicole.FirstName = "Nicole";
-            nicole.LastName = "Pi";
-            Board.addUser(nicole);
-            */
-
             Console.WriteLine("Welcome to Family Board!\n");            
             int choice = -1;
             bool invalidChoice = false;
+            var input = Console.ReadLine();
+            int UserId = -1;
+            while (choice != 0 || invalidChoice)
+            {
+                Console.WriteLine("1. Log in, or\n");
+                Console.WriteLine("2. Create new user.\n");
+                using (var model = new FamilyBoardModel())
+                {
+                    input = Console.ReadLine();
+                    if (!int.TryParse(input, out choice))
+                    {
+                        invalidChoice = true;
+                        Console.WriteLine("Invalid choice, try again...");
+                        continue;
+                    }
+
+                    invalidChoice = false;
+                    choice = int.Parse(input);
+                    break;
+                }
+
+            }
+            if(choice==1)
+            {
+                while (choice != 0 || invalidChoice)
+                {
+                    Console.WriteLine("Select a user\n");
+                    using (var model = new FamilyBoardModel())
+                    {
+                        int i = 1;
+                        foreach (var user in model.Users)
+                        {
+                            Console.WriteLine("{0}. {1}", i, user.UserName);
+                            i++;
+                        }
+                        input = Console.ReadLine();
+                        if (!int.TryParse(input, out choice))
+                        {
+                            invalidChoice = true;
+                            Console.WriteLine("Invalid choice, try again...");
+                            continue;
+                        }
+
+                        invalidChoice = false;
+
+
+                        UserId = int.Parse(input);
+                        break;
+                    }
+
+                }
+            }else if(choice==2)
+            {
+
+            }
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+            
+            
+            choice = -1;
+            invalidChoice = false;
             while (choice != 0 || invalidChoice)
             {
                 Console.WriteLine("What do you want to do?\n");
@@ -29,7 +99,7 @@ namespace FamilyBoard
                 Console.WriteLine("4. Leave a video comment.");
                 Console.WriteLine("0. Exit.\n");
                 Console.Write("Please choose an option from above: ");
-                var input = Console.ReadLine();
+                input = Console.ReadLine();
 
                 if (!int.TryParse(input, out choice))
                 {
@@ -44,7 +114,7 @@ namespace FamilyBoard
                         {
                             Console.Write("Enter Photo Title: ");
                             var title = Console.ReadLine();
-                            var photo = new Photo();
+                            var photo = new Photo(UserId);
                             photo.Title = title;
                             photo.DateCreated = DateTime.Now.ToString();
                             Board.addPhoto(photo);
@@ -85,16 +155,18 @@ namespace FamilyBoard
                                   from photo in model.Photos
                                   where photo.Id == choice
                                   select photo;
+
                                 foreach (Photo photo in photoQuery)
                                 {
                                     Console.WriteLine("What do you think about {0}?", photo.Title);
-                                    
+
                                 }
+
+
                                 input = Console.ReadLine();
-                                PhotoComment comment = new PhotoComment();
+                                PhotoComment comment = new PhotoComment(UserId, choice);
                                 comment.Content = input;
-                                comment.PhotoId = choice;
-                                comment.UserId = 1;
+
                                 Board.addPhotocomment(comment);
 
                                 break;
@@ -145,11 +217,13 @@ namespace FamilyBoard
 
 
 
-               
-                Console.ReadLine(); //prevent command line from closing
-               
+
+                //Console.ReadLine(); //prevent command line from closing
+
             }
             Board.PrintContent();
+            Console.ReadLine(); //prevent command line from closing
         }
     }
 }
+

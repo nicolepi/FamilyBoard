@@ -2,6 +2,7 @@ namespace FamilyBoard
 {
     using System;
     using System.Data.Entity;
+    using System.Data.Entity.ModelConfiguration.Conventions;
     using System.Linq;
 
     public class FamilyBoardModel : DbContext
@@ -25,7 +26,16 @@ namespace FamilyBoard
         public virtual DbSet<Video> Videos { get; set; }
         public virtual DbSet<PhotoComment> PhotoComments { get; set; }
         public virtual DbSet<VideoComment> VideoComments { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
+        }
     }
+
+    
+   
 
     //public class MyEntity
     //{

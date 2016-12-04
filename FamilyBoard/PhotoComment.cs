@@ -28,6 +28,14 @@ namespace FamilyBoard
         public PhotoComment()
         {
             SetDateCreated();
+            
+        }
+
+        public PhotoComment(int UserId, int PhotoId)
+        {
+            SetDateCreated();
+            this. UserId = UserId;
+            this.PhotoId = PhotoId;
         }
         public void SetDateCreated()
         {
