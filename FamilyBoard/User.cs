@@ -19,7 +19,8 @@ namespace FamilyBoard
         string Password { get; set; }
         public virtual ICollection<VideoComment> VideoComments { get; set; }
         public virtual ICollection<PhotoComment> PhotoComments { get; set; }
-        public virtual ICollection<Photo> Photos { get; set; } //12.2.16
+        public virtual ICollection<Photo> Photos { get; set; } 
+        public virtual ICollection<Video> Videos { get; set; }
         #endregion
 
         #region Methods

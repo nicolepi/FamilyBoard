@@ -9,8 +9,7 @@ namespace FamilyBoard.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "FamilyBoard.FamilyBoardModel";
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(FamilyBoard.FamilyBoardModel context)

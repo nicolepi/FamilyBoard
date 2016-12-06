@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{287DA516-59A0-4059-B9B7-E85938847FCA}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FamilyBoard</RootNamespace>
     <AssemblyName>FamilyBoard</AssemblyName>
@@ -58,9 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
-    <Compile Include="Migrations\201612031716132_InitialCreate.cs" />
-    <Compile Include="Migrations\201612031716132_InitialCreate.Designer.cs">
-      <DependentUpon>201612031716132_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201612051557219_Initial.cs" />
+    <Compile Include="Migrations\201612051557219_Initial.Designer.cs">
+      <DependentUpon>201612051557219_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612051905325_Initial1.cs" />
+    <Compile Include="Migrations\201612051905325_Initial1.Designer.cs">
+      <DependentUpon>201612051905325_Initial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PhotoComment.cs" />
@@ -77,8 +81,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612031716132_InitialCreate.resx">
-      <DependentUpon>201612031716132_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612051557219_Initial.resx">
+      <DependentUpon>201612051557219_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612051905325_Initial1.resx">
+      <DependentUpon>201612051905325_Initial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

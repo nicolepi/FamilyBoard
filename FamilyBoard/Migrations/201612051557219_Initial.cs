@@ -3,7 +3,7 @@ namespace FamilyBoard.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -70,8 +70,11 @@ namespace FamilyBoard.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Title = c.String(),
                         DateCreated = c.String(),
+                        UserId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Users", t => t.UserId)
+                .Index(t => t.UserId);
             
         }
         
@@ -81,7 +84,9 @@ namespace FamilyBoard.Migrations
             DropForeignKey("dbo.PhotoComments", "PhotoId", "dbo.Photos");
             DropForeignKey("dbo.Photos", "UserId", "dbo.Users");
             DropForeignKey("dbo.VideoComments", "VideoId", "dbo.Videos");
+            DropForeignKey("dbo.Videos", "UserId", "dbo.Users");
             DropForeignKey("dbo.VideoComments", "UserId", "dbo.Users");
+            DropIndex("dbo.Videos", new[] { "UserId" });
             DropIndex("dbo.VideoComments", new[] { "UserId" });
             DropIndex("dbo.VideoComments", new[] { "VideoId" });
             DropIndex("dbo.Photos", new[] { "UserId" });

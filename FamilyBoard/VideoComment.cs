@@ -15,8 +15,7 @@ namespace FamilyBoard
         public int Id { get; set; }
         public string Content { get; set; }
         public string DateCreated { get; set; }
-        #endregion
-
+        
         [ForeignKey("Video")]
         public int VideoId { get; set; }
         public virtual Video Video { get; set; }
@@ -24,11 +23,20 @@ namespace FamilyBoard
         [ForeignKey("User")]
         public int UserId { get; set; }
         public virtual User User { get; set; }
+        #endregion
 
         public VideoComment()
         {
             SetDateCreated();
         }
+
+        public VideoComment(int UserId, int VideoId)
+        {
+            SetDateCreated();
+            this.UserId = UserId;
+            this.VideoId = VideoId;
+        }
+
         public void SetDateCreated()
         {
             DateCreated = DateTime.Now.ToString();

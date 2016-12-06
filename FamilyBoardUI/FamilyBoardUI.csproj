@@ -170,6 +170,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PhotoCommentsController.cs" />
+    <Compile Include="Controllers\PhotosController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\VideoCommentsController.cs" />
+    <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -200,7 +205,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -234,6 +241,33 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Photos\Create.cshtml" />
+    <Content Include="Views\Photos\Delete.cshtml" />
+    <Content Include="Views\Photos\Details.cshtml" />
+    <Content Include="Views\Photos\Edit.cshtml" />
+    <Content Include="Views\Photos\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Videos\Create.cshtml" />
+    <Content Include="Views\Videos\Delete.cshtml" />
+    <Content Include="Views\Videos\Details.cshtml" />
+    <Content Include="Views\Videos\Edit.cshtml" />
+    <Content Include="Views\Videos\Index.cshtml" />
+    <Content Include="Views\Photos\Comments.cshtml" />
+    <Content Include="Views\PhotoComments\Create.cshtml" />
+    <Content Include="Views\PhotoComments\Delete.cshtml" />
+    <Content Include="Views\PhotoComments\Details.cshtml" />
+    <Content Include="Views\PhotoComments\Edit.cshtml" />
+    <Content Include="Views\PhotoComments\Index.cshtml" />
+    <Content Include="Views\Videos.cshtml" />
+    <Content Include="Views\VideoCommnets\Delete.cshtml" />
+    <Content Include="Views\VideoCommnets\Details.cshtml" />
+    <Content Include="Views\VideoCommnets\Index.cshtml" />
+    <Content Include="Views\VideoCommnets\Edit.cshtml" />
+    <Content Include="Views\VideoCommnets\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -245,6 +279,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FamilyBoard\FamilyBoard.csproj">
+      <Project>{287da516-59a0-4059-b9b7-e85938847fca}</Project>
+      <Name>FamilyBoard</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

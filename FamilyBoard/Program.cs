@@ -11,6 +11,8 @@ namespace FamilyBoard
 
         static void Main(string[] args)
         {
+            User nicole = new User("nicolepi");
+            Board.addUser(nicole);
             Console.WriteLine("Welcome to Family Board!\n");            
             int choice = -1;
             bool invalidChoice = false;
@@ -22,6 +24,7 @@ namespace FamilyBoard
                 Console.WriteLine("2. Create new user.\n");
                 using (var model = new FamilyBoardModel())
                 {
+                    model.SaveChanges();
                     input = Console.ReadLine();
                     if (!int.TryParse(input, out choice))
                     {

@@ -19,7 +19,6 @@ namespace FamilyBoard
         [ForeignKey("User")]
         public int UserId { get; set; }
         public virtual User User { get; set; }
-
         #endregion
 
         #region Methods
