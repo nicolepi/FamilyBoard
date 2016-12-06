@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyBoard", "FamilyBoard\FamilyBoard.csproj", "{287DA516-59A0-4059-B9B7-E85938847FCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyBoardUI", "FamilyBoardUI\FamilyBoardUI.csproj", "{5A2AFA6F-552C-4B56-BA2C-6F7C7A5D4513}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{287DA516-59A0-4059-B9B7-E85938847FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{287DA516-59A0-4059-B9B7-E85938847FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{287DA516-59A0-4059-B9B7-E85938847FCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A2AFA6F-552C-4B56-BA2C-6F7C7A5D4513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A2AFA6F-552C-4B56-BA2C-6F7C7A5D4513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A2AFA6F-552C-4B56-BA2C-6F7C7A5D4513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A2AFA6F-552C-4B56-BA2C-6F7C7A5D4513}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
