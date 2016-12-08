@@ -4,3 +4,6 @@
 
 /FamilyBoard/bin/Debug
 /FamilyBoard/obj/Debug
+/FamilyBoard/FamilyBoardUI/bin
+/FamilyBoard/FamilyBoardUI/obj
+/FamilyBoard/FamilyBoardUI/App_Data

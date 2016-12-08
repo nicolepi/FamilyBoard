@@ -1,10 +1,10 @@
-﻿@model IEnumerable<FamilyBoard.Photo>
+﻿@model IEnumerable<FamilyBoard.PhotoComment>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ViewComment";
 }
 
-<h2>Photos</h2>
+<h2>ViewComment</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            <p>Created by</p>
+            @Html.DisplayNameFor(model => model.Photo.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.User.UserName)
         </th>
         <th>
-            <p>Date Created</p>
+            @Html.DisplayNameFor(model => model.Content)
         </th>
         <th>
-            <p>Actions</p>
+            @Html.DisplayNameFor(model => model.DateCreated)
         </th>
         <th></th>
     </tr>
@@ -29,10 +29,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Photo.Title)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.User.UserName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.DisplayFor(modelItem => item.Content)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateCreated)
@@ -40,9 +43,7 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
-            @Html.ActionLink("Show Comments", "ViewComment", "PhotoComments", new { id = item.Id }, null) |  <!--test-->
-            @Html.ActionLink("Make a Comment", "Create", "PhotoComments")  <!--test-->
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

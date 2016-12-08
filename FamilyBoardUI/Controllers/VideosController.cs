@@ -39,6 +39,7 @@ namespace FamilyBoardUI.Controllers
         // GET: Videos/Create
         public ActionResult Create()
         {
+            ViewBag.UserId = new SelectList(db.Users, "Id", "UserName");
             return View();
         }
 

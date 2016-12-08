@@ -268,6 +268,7 @@
     <Content Include="Views\VideoCommnets\Index.cshtml" />
     <Content Include="Views\VideoCommnets\Edit.cshtml" />
     <Content Include="Views\VideoCommnets\Create.cshtml" />
+    <Content Include="Views\PhotoComments\ViewComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

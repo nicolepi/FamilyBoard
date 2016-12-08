@@ -8,38 +8,33 @@ using System.Web;
 using System.Web.Mvc;
 using FamilyBoard;
 
+//Controller
+
 namespace FamilyBoardUI.Controllers
 {
     public class PhotoCommentsController : Controller
     {
         private FamilyBoardModel db = new FamilyBoardModel();
 
+        //original code
+        public ActionResult Index()
+        {
+            var photoComments = db.PhotoComments.Include(p => p.Photo).Include(p => p.User);
+            return View(photoComments.ToList());
+        }
+
+
         // GET: PhotoComments
 
 
-
-
-
-
-        public ActionResult Index(int id)
+        public ActionResult ViewComment(int id)
         {
-            var photoComments = from p in db.PhotoComments where p.PhotoId ==id select p;
+            var photoComments = from p in db.PhotoComments where p.PhotoId == id select p;
             return View(photoComments.ToList());
         }
 
 
 
-
-
-
-
-
-        //original code
-        //public ActionResult Index()
-        //{
-        //    var photoComments = db.PhotoComments.Include(p => p.Photo).Include(p => p.User);
-        //    return View(photoComments.ToList());
-        //}
 
         // GET: PhotoComments/Details/5
         public ActionResult Details(int? id)
