@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="File.cs" />
+    <Compile Include="FileType.cs" />
     <Compile Include="Migrations\201612100044398_TodoList.cs" />
     <Compile Include="Migrations\201612100044398_TodoList.Designer.cs">
       <DependentUpon>201612100044398_TodoList.cs</DependentUpon>
@@ -65,6 +67,10 @@
     <Compile Include="Migrations\201612100056488_todolist refine.cs" />
     <Compile Include="Migrations\201612100056488_todolist refine.Designer.cs">
       <DependentUpon>201612100056488_todolist refine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612100219557_upload photo function.cs" />
+    <Compile Include="Migrations\201612100219557_upload photo function.Designer.cs">
+      <DependentUpon>201612100219557_upload photo function.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PhotoComment.cs" />
@@ -89,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612100056488_todolist refine.resx">
       <DependentUpon>201612100056488_todolist refine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612100219557_upload photo function.resx">
+      <DependentUpon>201612100219557_upload photo function.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

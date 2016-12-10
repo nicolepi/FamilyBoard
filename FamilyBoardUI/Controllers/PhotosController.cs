@@ -28,7 +28,8 @@ namespace FamilyBoardUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Photo photo = db.Photos.Find(id);
+            Photo photo = db.Photos.Include(s => s.Files).SingleOrDefault(s => s.Id == id);
+            //Photo photo = db.Photos.Find(id);
             if (photo == null)
             {
                 return HttpNotFound();
@@ -48,10 +49,24 @@ namespace FamilyBoardUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,DateCreated,UserId")] Photo photo)
+        public ActionResult Create([Bind(Include = "Id,Title,DateCreated,UserId")] Photo photo, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var picture = new File
+                    {
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Picture,
+                        ContentType = upload.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        picture.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    photo.Files = new List<File> { picture };
+                }
                 db.Photos.Add(photo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
