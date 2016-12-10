@@ -187,6 +187,10 @@
     <Compile Include="Migrations\201612100045078_TodoList.Designer.cs">
       <DependentUpon>201612100045078_TodoList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612100139241_update of todo list.cs" />
+    <Compile Include="Migrations\201612100139241_update of todo list.Designer.cs">
+      <DependentUpon>201612100139241_update of todo list.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -284,6 +288,7 @@
     <Content Include="Views\TodoLists\Details.cshtml" />
     <Content Include="Views\TodoLists\Edit.cshtml" />
     <Content Include="Views\TodoLists\Index.cshtml" />
+    <Content Include="Views\TodoLists\Done.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -308,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612100045078_TodoList.resx">
       <DependentUpon>201612100045078_TodoList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612100139241_update of todo list.resx">
+      <DependentUpon>201612100139241_update of todo list.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

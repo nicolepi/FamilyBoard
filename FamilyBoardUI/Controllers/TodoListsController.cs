@@ -21,7 +21,41 @@ namespace FamilyBoardUI.Controllers
             return View(todoLists.ToList());
         }
 
-        // GET: TodoLists/Details/5
+        ////GET: Mark todo list as done
+        public ActionResult Done(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TodoList todoList = db.TodoLists.Find(id);
+            if (todoList == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.UserId = new SelectList(db.Users, "Id", "UserName", todoList.UserId);
+            return View(todoList);
+        }
+
+        //// POST: TodoLists/Done/5
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Done([Bind(Include = "Id,Done,Content,DateCreated,DateCompleted,UserId")] TodoList todoList)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(todoList).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.UserId = new SelectList(db.Users, "Id", "UserName", todoList.UserId);
+            return View(todoList);
+        }
+
+
+        //GET: TodoLists/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -94,6 +128,7 @@ namespace FamilyBoardUI.Controllers
             return View(todoList);
         }
 
+        
         // GET: TodoLists/Delete/5
         public ActionResult Delete(int? id)
         {
