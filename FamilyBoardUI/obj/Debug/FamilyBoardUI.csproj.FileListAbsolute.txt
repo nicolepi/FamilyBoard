@@ -211,3 +211,6 @@ C:\Users\nicol\Source\Repos\FamilyBoard\FamilyBoardUI\bin\Microsoft.Owin.Securit
 C:\Users\nicol\Source\Repos\FamilyBoard\FamilyBoardUI\obj\Debug\FamilyBoardUI.csprojResolveAssemblyReference.cache
 C:\Users\nicol\Source\Repos\FamilyBoard\FamilyBoardUI\obj\Debug\FamilyBoardUI.dll
 C:\Users\nicol\Source\Repos\FamilyBoard\FamilyBoardUI\obj\Debug\FamilyBoardUI.pdb
+C:\Users\nicol\Source\Repos\FamilyBoard\FamilyBoardUI\obj\Debug\FamilyBoardUI.Migrations.InitialCreate.resources
+C:\Users\nicol\Source\Repos\FamilyBoard\FamilyBoardUI\obj\Debug\FamilyBoardUI.csproj.GenerateResource.Cache
+C:\Users\nicol\Source\Repos\FamilyBoard\FamilyBoardUI\obj\Debug\FamilyBoardUI.Migrations.TodoList.resources

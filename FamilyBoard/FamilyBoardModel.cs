@@ -26,6 +26,7 @@ namespace FamilyBoard
         public virtual DbSet<Video> Videos { get; set; }
         public virtual DbSet<PhotoComment> PhotoComments { get; set; }
         public virtual DbSet<VideoComment> VideoComments { get; set; }
+        public virtual DbSet<TodoList> TodoLists { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

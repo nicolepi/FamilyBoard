@@ -12,6 +12,7 @@ namespace FamilyBoard
         public static List<Photo> Photos { get; set; }
         public static List<Video> Videos { get; set; }
         public static List<User> Users { get; set; }
+        public static List<TodoList> TodoLists { get; set; }
         #endregion
 
         #region Constructor
@@ -20,6 +21,7 @@ namespace FamilyBoard
             Photos = new List<Photo>();
             Videos = new List<Video>();
             Users = new List<User>();
+            TodoLists = new List<TodoList>();
         }
         #endregion
 
@@ -48,6 +50,15 @@ namespace FamilyBoard
                 model.Users.Add(User);
                 model.SaveChanges();
 
+            }
+        }
+
+        public static void addTodoList(TodoList TodoList)
+        {
+            using (var model = new FamilyBoardModel())
+            {
+                model.TodoLists.Add(TodoList);
+                model.SaveChanges();
             }
         }
 

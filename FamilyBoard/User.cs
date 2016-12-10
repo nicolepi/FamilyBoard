@@ -21,6 +21,7 @@ namespace FamilyBoard
         public virtual ICollection<PhotoComment> PhotoComments { get; set; }
         public virtual ICollection<Photo> Photos { get; set; } 
         public virtual ICollection<Video> Videos { get; set; }
+        public virtual ICollection<TodoList> TodoLists { get; set; }
         #endregion
 
         #region Methods
