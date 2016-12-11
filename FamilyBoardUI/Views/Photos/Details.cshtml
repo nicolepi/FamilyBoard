@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Photo Detail</h2>
+<h2>Photo</h2>
 
 <div>
     <h4>@Html.DisplayFor(model => model.Title)</h4>
@@ -17,23 +17,24 @@
             </dd>
         }
         <dt>
-            <p>Created by:</p>
+            <p>Title</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            <p>Created by</p>
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.User.UserName)
         </dd>
 
-        <dt>
-            <p>Title:</p>
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+       
 
         <dt>
-            <p>Date created:</p>
+            <p>Date created</p>
         </dt>
 
         <dd>
