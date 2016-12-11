@@ -4,7 +4,7 @@
     ViewBag.Title = "ViewComment";
 }
 
-<h2>ViewComment</h2>
+<h2>Comments</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -15,13 +15,13 @@
             @Html.DisplayNameFor(model => model.Photo.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User.UserName)
+            <p>Create by</p>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Content)
+            <p>Comment</p>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateCreated)
+            <p>Date Created</p>
         </th>
         <th></th>
     </tr>
