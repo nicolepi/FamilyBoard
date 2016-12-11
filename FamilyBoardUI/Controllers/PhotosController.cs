@@ -15,6 +15,7 @@ namespace FamilyBoardUI.Controllers
         private FamilyBoardModel db = new FamilyBoardModel();
 
         // GET: Photos
+        [Authorize]
         public ActionResult Index()
         {
             var photos = db.Photos.Include(p => p.User);
@@ -22,6 +23,7 @@ namespace FamilyBoardUI.Controllers
         }
 
         // GET: Photos/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)

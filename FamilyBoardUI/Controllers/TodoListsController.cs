@@ -15,6 +15,7 @@ namespace FamilyBoardUI.Controllers
         private FamilyBoardModel db = new FamilyBoardModel();
 
         // GET: TodoLists
+        [Authorize]
         public ActionResult Index()
         {
             var todoLists = db.TodoLists.Include(t => t.User);

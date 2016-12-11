@@ -15,6 +15,7 @@ namespace FamilyBoardUI.Controllers
         private FamilyBoardModel db = new FamilyBoardModel();
 
         // GET: Videos
+        [Authorize]
         public ActionResult Index()
         {
             var videos = db.Videos.Include(p => p.User);

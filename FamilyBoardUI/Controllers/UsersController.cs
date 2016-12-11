@@ -15,6 +15,7 @@ namespace FamilyBoardUI.Controllers
         private FamilyBoardModel db = new FamilyBoardModel();
 
         // GET: Users
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Users.ToList());
