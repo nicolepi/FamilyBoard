@@ -53,22 +53,30 @@ namespace FamilyBoardUI.Controllers
         }
 
         // GET: VideoComments/Create
-        public ActionResult Create()
+        public ActionResult Create(int? videoId)
         {
-
-            ViewBag.VideoId = new SelectList(db.Videos, "Id", "Title");
+            ViewBag.VideoId = new SelectList(db.Videos.Where(p => p.Id == videoId.Value), "Id", "Title");
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserName");
             return View();
         }
 
+
+        //public ActionResult Create()
+        //{
+
+        //    ViewBag.VideoId = new SelectList(db.Videos, "Id", "Title");
+        //    ViewBag.UserId = new SelectList(db.Users, "Id", "UserName");
+        //    return View();
+        //}
+
         // POST: VideoComments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Content,DateCreated,VideoId,UserId")] VideoComment videoComment)
         {
-
             if (ModelState.IsValid)
             {
                 db.VideoComments.Add(videoComment);
@@ -76,10 +84,28 @@ namespace FamilyBoardUI.Controllers
                 return RedirectToAction("Index", "Videos");
             }
 
-            ViewBag.VideoId = new SelectList(db.Videos, "Id", "Title", videoComment.VideoId);
+            ViewBag.VideooId = new SelectList(db.Videos, "Id", "Title", videoComment.VideoId);
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserName", videoComment.UserId);
             return RedirectToAction("Index", "Videos");
         }
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "Id,Content,DateCreated,VideoId,UserId")] VideoComment videoComment)
+        //{
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.VideoComments.Add(videoComment);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index", "Videos");
+        //    }
+
+        //    ViewBag.VideoId = new SelectList(db.Videos, "Id", "Title", videoComment.VideoId);
+        //    ViewBag.UserId = new SelectList(db.Users, "Id", "UserName", videoComment.UserId);
+        //    return RedirectToAction("Index", "Videos");
+        //}
 
         // GET: VideoComments/Edit/5
         public ActionResult Edit(int? id)

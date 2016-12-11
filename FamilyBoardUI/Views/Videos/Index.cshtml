@@ -52,8 +52,8 @@
         </td>
         <td>        
             @Html.ActionLink("Play Video", "Details", new { id = item.Id }) |  
-            @Html.ActionLink("Comments", "ViewComment", "VideoComments") |  <!--test-->
-            @Html.ActionLink("Make a Comment", "Create", "VideoComments")  <!--test--> 
+            @Html.ActionLink("Comments", "ViewComment", "VideoComments", new { id = item.Id }, null) |  <!--test-->
+            @Html.ActionLink("Make a Comment", "Create", "VideoComments", new { videoId = item.Id }, null)  <!--test--> 
             
            
         </td>
