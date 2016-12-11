@@ -81,6 +81,10 @@
     <Compile Include="Migrations\201612110025521_video files.Designer.cs">
       <DependentUpon>201612110025521_video files.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612111947187_add user email.cs" />
+    <Compile Include="Migrations\201612111947187_add user email.Designer.cs">
+      <DependentUpon>201612111947187_add user email.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PhotoComment.cs" />
     <Compile Include="FamilyBoardModel.cs" />
@@ -114,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612110025521_video files.resx">
       <DependentUpon>201612110025521_video files.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612111947187_add user email.resx">
+      <DependentUpon>201612111947187_add user email.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

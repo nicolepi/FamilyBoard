@@ -38,9 +38,11 @@ namespace FamilyBoardUI.Controllers
         }
 
         // GET: Photos/Create
-        public ActionResult Create()
+        [Authorize]
+        public ActionResult Create(String user) //was empty
         {
-            ViewBag.UserId = new SelectList(db.Users, "Id", "UserName");
+            ViewBag.UserId = new SelectList(db.Users.Where(p => p.EmailAddress == user), "Id", "UserName");
+            //ViewBag.UserId = new SelectList(db.Users, "Id", "UserName");
             return View();
         }
 
@@ -49,6 +51,7 @@ namespace FamilyBoardUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "Id,Title,DateCreated,UserId")] Photo photo, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)

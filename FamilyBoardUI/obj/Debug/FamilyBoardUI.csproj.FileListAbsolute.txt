@@ -215,3 +215,4 @@ C:\Users\nicol\Source\Repos\FamilyBoard\FamilyBoardUI\obj\Debug\FamilyBoardUI.Mi
 C:\Users\nicol\Source\Repos\FamilyBoard\FamilyBoardUI\obj\Debug\FamilyBoardUI.csproj.GenerateResource.Cache
 C:\Users\nicol\Source\Repos\FamilyBoard\FamilyBoardUI\obj\Debug\FamilyBoardUI.Migrations.TodoList.resources
 C:\Users\nicol\Source\Repos\FamilyBoard\FamilyBoardUI\obj\Debug\FamilyBoardUI.Migrations.updateoftodolist.resources
+C:\Users\nicol\Source\Repos\FamilyBoard\FamilyBoardUI\obj\Debug\FamilyBoardUI.Migrations.adduseremail.resources

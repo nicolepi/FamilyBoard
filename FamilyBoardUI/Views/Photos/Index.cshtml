@@ -7,7 +7,7 @@
 <h2>Photos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { user = User.Identity.Name } )
 </p>
 
 <table class="table">
@@ -55,7 +55,7 @@
         <td>            
             @Html.ActionLink("Large Photo", "Details", new { id = item.Id }) |
             @Html.ActionLink("Comments", "ViewComment", "PhotoComments", new { id = item.Id }, null) |  <!--test-->
-            @Html.ActionLink("Make a Comment", "Create", "PhotoComments", new { photoId = item.Id }, null)    <!--test-->
+            @Html.ActionLink("Make a Comment", "Create", "PhotoComments", new { photoId = item.Id, user = User.Identity.Name }, null)    <!--test-->
                       
            
         </td>

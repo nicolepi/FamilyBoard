@@ -193,6 +193,10 @@
     <Compile Include="Migrations\201612100139241_update of todo list.Designer.cs">
       <DependentUpon>201612100139241_update of todo list.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612111948233_add user email.cs" />
+    <Compile Include="Migrations\201612111948233_add user email.Designer.cs">
+      <DependentUpon>201612111948233_add user email.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -317,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612100139241_update of todo list.resx">
       <DependentUpon>201612100139241_update of todo list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612111948233_add user email.resx">
+      <DependentUpon>201612111948233_add user email.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

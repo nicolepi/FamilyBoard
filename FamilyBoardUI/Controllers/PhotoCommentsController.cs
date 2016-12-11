@@ -53,10 +53,10 @@ namespace FamilyBoardUI.Controllers
         }
 
         // GET: PhotoComments/Create
-        public ActionResult Create(int? photoId)
+        public ActionResult Create(int? photoId, String user)
         {
             ViewBag.PhotoId = new SelectList(db.Photos.Where(p => p.Id == photoId.Value), "Id", "Title");
-            ViewBag.UserId = new SelectList(db.Users, "Id", "UserName");
+            ViewBag.UserId = new SelectList(db.Users.Where(p => p.EmailAddress == user), "Id", "UserName");
             return View();
         }
 
