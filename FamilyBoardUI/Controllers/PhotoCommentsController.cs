@@ -27,11 +27,12 @@ namespace FamilyBoardUI.Controllers
         // GET: PhotoComments
 
 
-        public ActionResult ViewComment(int id)
+        public ActionResult ViewComment(int? id)
         {
            
             var photoComments = from p in db.PhotoComments where p.PhotoId == id select p;
-            return View(photoComments.ToList());
+            var photo = from p in db.Photos where p.Id == id select p;
+            return View(new FamilyBoardUI.Models.CommentWithPhotoModel(photoComments.ToList(), photo.First()));
         }
 
 

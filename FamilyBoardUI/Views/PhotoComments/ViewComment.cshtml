@@ -1,22 +1,29 @@
-﻿@model IEnumerable<FamilyBoard.PhotoComment>
+﻿@model  FamilyBoardUI.Models.CommentWithPhotoModel
 
 @{
     ViewBag.Title = "ViewComment";
 }
 
+
 <h2>
-    Comments
-    
+    Comments   
     
 </h2>
+@if (Model.Photo.Files.Any(f => f.FileType == FamilyBoard.FileType.Picture))
+{
+    <dd align="middle">
+        <img src="~/File?id=@Model.Photo.Files.First(f => f.FileType == FileType.Picture).FileId" alt="Picture" width="300" />
+    </dd>
+}
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Make a Comment", "Create", "PhotoComments", new { photoId = Model.Photo.Id, user = User.Identity.Name }, null)
+    @*@Html.ActionLink("Create New", "Create")*@
 </p>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Photo.Title)
-        </th>
+        </th>*@
         <th>
             <p>Create by</p>
         </th>
@@ -29,11 +36,11 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.PhotoComments) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Photo.Title)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.User.UserName)
         </td>
