@@ -27,7 +27,7 @@ namespace FamilyBoardUI.Controllers
         // GET: VideoComments
 
 
-        public ActionResult ViewComment(int id)
+        public ActionResult ViewComment(int? id)
         {
 
             var videoComments = from p in db.VideoComments where p.VideoId == id select p;

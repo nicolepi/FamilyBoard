@@ -279,11 +279,6 @@
     <Content Include="Views\PhotoComments\Edit.cshtml" />
     <Content Include="Views\PhotoComments\Index.cshtml" />
     <Content Include="Views\Videos.cshtml" />
-    <Content Include="Views\VideoCommnets\Delete.cshtml" />
-    <Content Include="Views\VideoCommnets\Details.cshtml" />
-    <Content Include="Views\VideoCommnets\Index.cshtml" />
-    <Content Include="Views\VideoCommnets\Edit.cshtml" />
-    <Content Include="Views\VideoCommnets\Create.cshtml" />
     <Content Include="Views\PhotoComments\ViewComment.cshtml" />
     <Content Include="Views\TodoLists\Create.cshtml" />
     <Content Include="Views\TodoLists\Delete.cshtml" />
@@ -291,7 +286,8 @@
     <Content Include="Views\TodoLists\Edit.cshtml" />
     <Content Include="Views\TodoLists\Index.cshtml" />
     <Content Include="Views\TodoLists\Done.cshtml" />
-    <Content Include="Views\VideoCommnets\ViewComment.cshtml" />
+    <Content Include="Views\VideoComments\Create.cshtml" />
+    <Content Include="Views\VideoComments\ViewComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

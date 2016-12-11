@@ -55,7 +55,7 @@
         <td>            
             @Html.ActionLink("Large Photo", "Details", new { id = item.Id }) |
             @Html.ActionLink("Comments", "ViewComment", "PhotoComments", new { id = item.Id }, null) |  <!--test-->
-            @Html.ActionLink("Make a Comment", "Create", "PhotoComments")    <!--test-->
+            @Html.ActionLink("Make a Comment", "Create", "PhotoComments", new { photoId = item.Id }, null)    <!--test-->
                       
            
         </td>

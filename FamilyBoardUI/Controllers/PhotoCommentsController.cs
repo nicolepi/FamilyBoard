@@ -53,10 +53,9 @@ namespace FamilyBoardUI.Controllers
         }
 
         // GET: PhotoComments/Create
-        public ActionResult Create()
+        public ActionResult Create(int? photoId)
         {
-
-            ViewBag.PhotoId = new SelectList(db.Photos, "Id", "Title");
+            ViewBag.PhotoId = new SelectList(db.Photos.Where(p => p.Id == photoId.Value), "Id", "Title");
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserName");
             return View();
         }
@@ -68,7 +67,6 @@ namespace FamilyBoardUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Content,DateCreated,PhotoId,UserId")] PhotoComment photoComment)
         {
-
             if (ModelState.IsValid)
             {
                 db.PhotoComments.Add(photoComment);
