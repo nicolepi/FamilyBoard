@@ -13,7 +13,9 @@
         @if (Model.VideoFiles.Any(f => f.FileType == FamilyBoard.FileType.Video))
         {
             <dd>
-                <img src="~/File?id=@Model.VideoFiles.First(f => f.FileType == FileType.Video).FileId" alt="video"  width="600"/>
+                <video width="600" controls>
+                <source src="~/VideoFile?id=@Model.VideoFiles.First(f => f.FileType == FileType.Video).FileId" alt="video" type="video/mp4"/>
+                </video> 
             </dd>
         }
         <dt>
