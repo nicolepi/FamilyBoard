@@ -4,12 +4,18 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Video Detail</h2>
 
 <div>
-    <h4>Video</h4>
+    <h4>@Html.DisplayFor(model => model.Title)</h4>
     <hr />
     <dl class="dl-horizontal">
+        @if (Model.VideoFiles.Any(f => f.FileType == FamilyBoard.FileType.Video))
+        {
+            <dd>
+                <img src="~/File?id=@Model.VideoFiles.First(f => f.FileType == FileType.Video).FileId" alt="video"  width="600"/>
+            </dd>
+        }
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>

@@ -83,7 +83,8 @@ namespace FamilyBoardUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Photo photo = db.Photos.Find(id);
+            Photo photo = db.Photos.Include(s => s.Files).SingleOrDefault(s => s.Id == id);
+            //Photo photo = db.Photos.Find(id);
             if (photo == null)
             {
                 return HttpNotFound();
@@ -100,11 +101,15 @@ namespace FamilyBoardUI.Controllers
         public ActionResult Edit([Bind(Include = "Id,Title,DateCreated,UserId")] Photo photo)
         {
             if (ModelState.IsValid)
-            {
+            {           
                 db.Entry(photo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+               
+
+
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserName", photo.UserId);
             return View(photo);
         }

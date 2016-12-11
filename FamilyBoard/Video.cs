@@ -19,6 +19,7 @@ namespace FamilyBoard
         [ForeignKey("User")]
         public int UserId { get; set; }
         public virtual User User { get; set; }
+        public virtual ICollection<VideoFile> VideoFiles { get; set; }
         #endregion
 
         #region Methods

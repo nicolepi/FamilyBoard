@@ -37,14 +37,18 @@
         <td>
             @Html.DisplayFor(modelItem => item.DateCreated)
         </td>
+        <td>        
+            @Html.ActionLink("Show Video", "Details", new { id = item.Id }) |  
+            @Html.ActionLink("Show Comments", "Index", "VideoComments", new { id = item.Id }, null) |  <!--test-->
+            @Html.ActionLink("Make a Comment", "Create", "VideoComments")  <!--test--> 
+            
+           
+        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
-            @Html.ActionLink("Show Comments", "Index", "VideoComments", new { id = item.Id }, null) |  <!--test-->
-            @Html.ActionLink("Make a Comment", "Create", "VideoComments")  <!--test-->
-        </td>
-    </tr>
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+           
+        </tr>
 }
 
 </table>

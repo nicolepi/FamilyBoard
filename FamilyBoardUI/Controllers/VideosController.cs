@@ -28,7 +28,8 @@ namespace FamilyBoardUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Video video = db.Videos.Find(id);
+            Video video = db.Videos.Include(s => s.VideoFiles).SingleOrDefault(s => s.Id == id);
+            //Video video = db.Videos.Find(id);
             if (video == null)
             {
                 return HttpNotFound();
@@ -48,10 +49,24 @@ namespace FamilyBoardUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,DateCreated,UserId")] Video video)
+        public ActionResult Create([Bind(Include = "Id,Title,DateCreated,UserId")] Video video, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var v = new VideoFile
+                    {
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Video,
+                        ContentType = upload.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        v.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    video.VideoFiles = new List<VideoFile> { v };
+                }
                 db.Videos.Add(video);
                 db.SaveChanges();
                 return RedirectToAction("Index");

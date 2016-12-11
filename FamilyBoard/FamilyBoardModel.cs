@@ -28,6 +28,7 @@ namespace FamilyBoard
         public virtual DbSet<VideoComment> VideoComments { get; set; }
         public virtual DbSet<TodoList> TodoLists { get; set; }
         public DbSet<File> Files { get; set; } //added for photo upload function
+        public DbSet<VideoFile> VideoFiles { get; set; } //added for photo upload function
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

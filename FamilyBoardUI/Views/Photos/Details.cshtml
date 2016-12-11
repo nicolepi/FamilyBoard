@@ -4,23 +4,20 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Photo Detail</h2>
 
 <div>
-    <h4>Photo</h4>
+    <h4>@Html.DisplayFor(model => model.Title)</h4>
     <hr />
     <dl class="dl-horizontal">
         @if (Model.Files.Any(f => f.FileType == FamilyBoard.FileType.Picture))
         {
-            <dt>
-                Picture
-            </dt>
             <dd>
-                <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Picture).FileId" alt="Picture" />
+                <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Picture).FileId" alt="Picture" width="600"/>
             </dd>
         }
         <dt>
-            @Html.DisplayNameFor(model => model.User.UserName)
+            <p>Created by:</p>
         </dt>
 
         <dd>
@@ -28,7 +25,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
+            <p>Title:</p>
         </dt>
 
         <dd>
@@ -36,7 +33,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateCreated)
+            <p>Date created:</p>
         </dt>
 
         <dd>

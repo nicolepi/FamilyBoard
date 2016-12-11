@@ -9,6 +9,7 @@ namespace FamilyBoard
 {
     public class File
     {
+        [Key]
         public int FileId { get; set; }
         [StringLength(255)]
         public string FileName { get; set; }
@@ -18,5 +19,6 @@ namespace FamilyBoard
         public FileType FileType { get; set; }
         public int PhotoId { get; set; }
         public virtual Photo Photo { get; set; }
+        
     }
 }

@@ -8,6 +8,7 @@ namespace FamilyBoard
 {
     public enum FileType
     {
-        Picture = 1, Photo
+        Picture = 1, 
+        Video = 2,
     }
 }
