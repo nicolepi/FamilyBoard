@@ -58,13 +58,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
-    <Compile Include="Migrations\201612051557219_Initial.cs" />
-    <Compile Include="Migrations\201612051557219_Initial.Designer.cs">
-      <DependentUpon>201612051557219_Initial.cs</DependentUpon>
+    <Compile Include="File.cs" />
+    <Compile Include="FileType.cs" />
+    <Compile Include="keyAttribute.cs" />
+    <Compile Include="Migrations\201612100044398_TodoList.cs" />
+    <Compile Include="Migrations\201612100044398_TodoList.Designer.cs">
+      <DependentUpon>201612100044398_TodoList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612051905325_Initial1.cs" />
-    <Compile Include="Migrations\201612051905325_Initial1.Designer.cs">
-      <DependentUpon>201612051905325_Initial1.cs</DependentUpon>
+    <Compile Include="Migrations\201612100056488_todolist refine.cs" />
+    <Compile Include="Migrations\201612100056488_todolist refine.Designer.cs">
+      <DependentUpon>201612100056488_todolist refine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612100219557_upload photo function.cs" />
+    <Compile Include="Migrations\201612100219557_upload photo function.Designer.cs">
+      <DependentUpon>201612100219557_upload photo function.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612102324413_add video attribute.cs" />
+    <Compile Include="Migrations\201612102324413_add video attribute.Designer.cs">
+      <DependentUpon>201612102324413_add video attribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612110025521_video files.cs" />
+    <Compile Include="Migrations\201612110025521_video files.Designer.cs">
+      <DependentUpon>201612110025521_video files.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612111947187_add user email.cs" />
+    <Compile Include="Migrations\201612111947187_add user email.Designer.cs">
+      <DependentUpon>201612111947187_add user email.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PhotoComment.cs" />
@@ -72,20 +91,36 @@
     <Compile Include="Photo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TodoList.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Video.cs" />
     <Compile Include="VideoComment.cs" />
+    <Compile Include="VideoFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612051557219_Initial.resx">
-      <DependentUpon>201612051557219_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612100044398_TodoList.resx">
+      <DependentUpon>201612100044398_TodoList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612051905325_Initial1.resx">
-      <DependentUpon>201612051905325_Initial1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612100056488_todolist refine.resx">
+      <DependentUpon>201612100056488_todolist refine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612100219557_upload photo function.resx">
+      <DependentUpon>201612100219557_upload photo function.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612102324413_add video attribute.resx">
+      <DependentUpon>201612102324413_add video attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612110025521_video files.resx">
+      <DependentUpon>201612110025521_video files.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612111947187_add user email.resx">
+      <DependentUpon>201612111947187_add user email.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

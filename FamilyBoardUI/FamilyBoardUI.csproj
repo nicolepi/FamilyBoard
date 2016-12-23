@@ -168,17 +168,38 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PhotoCommentsController.cs" />
     <Compile Include="Controllers\PhotosController.cs" />
+    <Compile Include="Controllers\TodoListsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\VideoCommentsController.cs" />
+    <Compile Include="Controllers\VideoFileController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612041355313_InitialCreate.cs" />
+    <Compile Include="Migrations\201612041355313_InitialCreate.Designer.cs">
+      <DependentUpon>201612041355313_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612100045078_TodoList.cs" />
+    <Compile Include="Migrations\201612100045078_TodoList.Designer.cs">
+      <DependentUpon>201612100045078_TodoList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612100139241_update of todo list.cs" />
+    <Compile Include="Migrations\201612100139241_update of todo list.Designer.cs">
+      <DependentUpon>201612100139241_update of todo list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612111948233_add user email.cs" />
+    <Compile Include="Migrations\201612111948233_add user email.Designer.cs">
+      <DependentUpon>201612111948233_add user email.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CommentWithPhotoModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -263,14 +284,20 @@
     <Content Include="Views\PhotoComments\Edit.cshtml" />
     <Content Include="Views\PhotoComments\Index.cshtml" />
     <Content Include="Views\Videos.cshtml" />
-    <Content Include="Views\VideoCommnets\Delete.cshtml" />
-    <Content Include="Views\VideoCommnets\Details.cshtml" />
-    <Content Include="Views\VideoCommnets\Index.cshtml" />
-    <Content Include="Views\VideoCommnets\Edit.cshtml" />
-    <Content Include="Views\VideoCommnets\Create.cshtml" />
+    <Content Include="Views\PhotoComments\ViewComment.cshtml" />
+    <Content Include="Views\TodoLists\Create.cshtml" />
+    <Content Include="Views\TodoLists\Delete.cshtml" />
+    <Content Include="Views\TodoLists\Details.cshtml" />
+    <Content Include="Views\TodoLists\Edit.cshtml" />
+    <Content Include="Views\TodoLists\Index.cshtml" />
+    <Content Include="Views\TodoLists\Done.cshtml" />
+    <Content Include="Views\VideoComments\Create.cshtml" />
+    <Content Include="Views\VideoComments\ViewComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\File\" />
+    <Folder Include="Views\VideoFile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -285,6 +312,20 @@
       <Project>{287da516-59a0-4059-b9b7-e85938847fca}</Project>
       <Name>FamilyBoard</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612041355313_InitialCreate.resx">
+      <DependentUpon>201612041355313_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612100045078_TodoList.resx">
+      <DependentUpon>201612100045078_TodoList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612100139241_update of todo list.resx">
+      <DependentUpon>201612100139241_update of todo list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612111948233_add user email.resx">
+      <DependentUpon>201612111948233_add user email.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

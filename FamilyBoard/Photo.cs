@@ -19,6 +19,7 @@ namespace FamilyBoard
         [ForeignKey("User")]
         public int UserId { get; set; }
         public virtual User User { get; set; }
+        public virtual ICollection<File> Files { get; set; } //added for photo upload function
         #endregion
 
         #region Methods

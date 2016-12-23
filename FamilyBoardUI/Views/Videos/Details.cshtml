@@ -4,22 +4,37 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Video</h2>
 
 <div>
-    <h4>Video</h4>
+    <h4>@Html.DisplayFor(model => model.Title)</h4>
     <hr />
     <dl class="dl-horizontal">
+        @if (Model.VideoFiles.Any(f => f.FileType == FamilyBoard.FileType.Video))
+        {
+            <dd>
+                <video width="600" controls>
+                <source src="~/VideoFile?id=@Model.VideoFiles.First(f => f.FileType == FileType.Video).FileId" alt="video" type="video/mp4"/>
+                </video> 
+            </dd>
+        }
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
+            <p>Title</p>
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
+        <dt>
+            <p>Created by</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateCreated)
+            <p>Date Created</p>
         </dt>
 
         <dd>

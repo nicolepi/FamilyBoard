@@ -4,30 +4,37 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Photo</h2>
 
 <div>
-    <h4>Photo</h4>
+    <h4>@Html.DisplayFor(model => model.Title)</h4>
     <hr />
     <dl class="dl-horizontal">
+        @if (Model.Files.Any(f => f.FileType == FamilyBoard.FileType.Picture))
+        {
+            <dd>
+                <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Picture).FileId" alt="Picture" width="600"/>
+            </dd>
+        }
         <dt>
-            @Html.DisplayNameFor(model => model.User.UserName)
+            <p>Title</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            <p>Created by</p>
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.User.UserName)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+       
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateCreated)
+            <p>Date created</p>
         </dt>
 
         <dd>

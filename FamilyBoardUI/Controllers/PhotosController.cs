@@ -15,6 +15,7 @@ namespace FamilyBoardUI.Controllers
         private FamilyBoardModel db = new FamilyBoardModel();
 
         // GET: Photos
+        [Authorize]
         public ActionResult Index()
         {
             var photos = db.Photos.Include(p => p.User);
@@ -22,13 +23,15 @@ namespace FamilyBoardUI.Controllers
         }
 
         // GET: Photos/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Photo photo = db.Photos.Find(id);
+            Photo photo = db.Photos.Include(s => s.Files).SingleOrDefault(s => s.Id == id);
+            //Photo photo = db.Photos.Find(id);
             if (photo == null)
             {
                 return HttpNotFound();
@@ -37,9 +40,11 @@ namespace FamilyBoardUI.Controllers
         }
 
         // GET: Photos/Create
-        public ActionResult Create()
+        [Authorize]
+        public ActionResult Create(String user) //was empty
         {
-            ViewBag.UserId = new SelectList(db.Users, "Id", "UserName");
+            ViewBag.UserId = new SelectList(db.Users.Where(p => p.EmailAddress == user), "Id", "UserName");
+            //ViewBag.UserId = new SelectList(db.Users, "Id", "UserName");
             return View();
         }
 
@@ -48,10 +53,25 @@ namespace FamilyBoardUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,DateCreated,UserId")] Photo photo)
+        [Authorize]
+        public ActionResult Create([Bind(Include = "Id,Title,DateCreated,UserId")] Photo photo, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var picture = new File
+                    {
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Picture,
+                        ContentType = upload.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        picture.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    photo.Files = new List<File> { picture };
+                }
                 db.Photos.Add(photo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -68,7 +88,8 @@ namespace FamilyBoardUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Photo photo = db.Photos.Find(id);
+            Photo photo = db.Photos.Include(s => s.Files).SingleOrDefault(s => s.Id == id);
+            //Photo photo = db.Photos.Find(id);
             if (photo == null)
             {
                 return HttpNotFound();
@@ -85,11 +106,15 @@ namespace FamilyBoardUI.Controllers
         public ActionResult Edit([Bind(Include = "Id,Title,DateCreated,UserId")] Photo photo)
         {
             if (ModelState.IsValid)
-            {
+            {           
                 db.Entry(photo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+               
+
+
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserName", photo.UserId);
             return View(photo);
         }

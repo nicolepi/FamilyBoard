@@ -16,11 +16,13 @@ namespace FamilyBoard
         public string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        string Password { get; set; }
+        public string EmailAddress { get; set; }
+
         public virtual ICollection<VideoComment> VideoComments { get; set; }
         public virtual ICollection<PhotoComment> PhotoComments { get; set; }
         public virtual ICollection<Photo> Photos { get; set; } 
         public virtual ICollection<Video> Videos { get; set; }
+        public virtual ICollection<TodoList> TodoLists { get; set; }
         #endregion
 
         #region Methods

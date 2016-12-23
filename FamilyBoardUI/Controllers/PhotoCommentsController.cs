@@ -8,38 +8,35 @@ using System.Web;
 using System.Web.Mvc;
 using FamilyBoard;
 
+//Controller
+
 namespace FamilyBoardUI.Controllers
 {
     public class PhotoCommentsController : Controller
     {
         private FamilyBoardModel db = new FamilyBoardModel();
 
-        // GET: PhotoComments
-
-
-
-
-
-
-        public ActionResult Index(int id)
+        //original code
+        public ActionResult Index()
         {
-            var photoComments = from p in db.PhotoComments where p.PhotoId ==id select p;
+            var photoComments = db.PhotoComments.Include(p => p.Photo).Include(p => p.User);
             return View(photoComments.ToList());
         }
 
 
+        // GET: PhotoComments
+
+
+        public ActionResult ViewComment(int? id)
+        {
+           
+            var photoComments = from p in db.PhotoComments where p.PhotoId == id select p;
+            var photo = from p in db.Photos where p.Id == id select p;
+            return View(new FamilyBoardUI.Models.CommentWithPhotoModel(photoComments.ToList(), photo.First()));
+        }
 
 
 
-
-
-
-        //original code
-        //public ActionResult Index()
-        //{
-        //    var photoComments = db.PhotoComments.Include(p => p.Photo).Include(p => p.User);
-        //    return View(photoComments.ToList());
-        //}
 
         // GET: PhotoComments/Details/5
         public ActionResult Details(int? id)
@@ -57,10 +54,10 @@ namespace FamilyBoardUI.Controllers
         }
 
         // GET: PhotoComments/Create
-        public ActionResult Create()
+        public ActionResult Create(int? photoId, String user)
         {
-            ViewBag.PhotoId = new SelectList(db.Photos, "Id", "Title");
-            ViewBag.UserId = new SelectList(db.Users, "Id", "UserName");
+            ViewBag.PhotoId = new SelectList(db.Photos.Where(p => p.Id == photoId.Value), "Id", "Title");
+            ViewBag.UserId = new SelectList(db.Users.Where(p => p.EmailAddress == user), "Id", "UserName");
             return View();
         }
 
@@ -75,12 +72,12 @@ namespace FamilyBoardUI.Controllers
             {
                 db.PhotoComments.Add(photoComment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Photos");
             }
 
             ViewBag.PhotoId = new SelectList(db.Photos, "Id", "Title", photoComment.PhotoId);
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserName", photoComment.UserId);
-            return View(photoComment);
+            return RedirectToAction("Index", "Photos");
         }
 
         // GET: PhotoComments/Edit/5
