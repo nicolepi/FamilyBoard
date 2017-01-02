@@ -12,19 +12,24 @@ namespace FamilyBoardUI.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
+        public ActionResult One()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Two(int donuts = 1)
         {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.Donuts = donuts;
             return View();
         }
+        [Authorize]
+        public ActionResult Three()
+        {
+            return View();
+        }
+
+
+
+
     }
 }
